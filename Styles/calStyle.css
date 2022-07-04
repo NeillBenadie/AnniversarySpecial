@@ -147,7 +147,7 @@ button:hover{
 		color: black;
 		display: flex;
 		min-width: 90vw;
-		min-height: 98vh;
+		min-height: 90vh;
 		border-style:groove;
 		border-width: 5px;
 		border-radius: 10px;
@@ -193,8 +193,8 @@ button:hover{
 		border-color: rgb(100, 100, 128);
 		color: black;
 		text-align: end;
-		font-family: 'digital-7',Arial, Helvetica, sans-serif; /*take out digital*/
-		font-size: 9vh; /*put to 7vh*/
+		font-family: Arial, Helvetica, sans-serif; 
+		font-size: 7vh;
 		word-wrap: break-word;
 		border-radius: 10px;
 		margin: 6%;
