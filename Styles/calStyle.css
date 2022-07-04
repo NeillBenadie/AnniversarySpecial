@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'digital-7' ;
+    src: url(../Fonts/digital-7.ttf) format('truetype');
+    font-weight: normal;
+}
+
+.Full{
+	box-sizing: border-box;
+	display: flex;
+	align-items:center;
+	text-align: center;
+	justify-content: space-between;
+	justify-content:center;
+	background: radial-gradient(rgb(147, 48, 167), black);
+	background-attachment: fixed;
+}
+
+#TempIly{
+	font-size: large;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: rgb(36, 0, 241);
+	text-shadow:
+	0 0 7px #fff,
+	0 0 10px #fff,
+	0 0 21px #fff,
+	0 0 42px #0fa,
+	0 0 82px #0fa,
+	0 0 92px #0fa,
+	0 0 102px #0fa,
+	0 0 151px #0fa
+}
+.Calculator{
+	margin-top: 15%;
+	flex-wrap: wrap;
+	background-color:rgb(81, 15, 119) ;
+	color: black;
+	display: flex;
+	max-width: 15vw;
+	min-height: 38vh;
+	border-style:groove;
+	border-width: 5px;
+	border-radius: 10px;
+	border-color: rgb(81, 15, 119);
+	box-shadow: 1px 1px 1px rgb(115, 94, 128),
+				1px 2px 1px rgb(115, 94, 128),
+				1px 3px 1px rgb(115, 94, 128),
+				1px 4px 1px rgb(115, 94, 128),
+				1px 5px 1px rgb(115, 94, 128),
+				1px 6px 1px rgb(115, 94, 128),
+				1px 7px 1px rgb(115, 94, 128),
+				1px 8px 1px rgb(115, 94, 128),
+				1px 9px 1px rgb(81, 15, 119),
+				1px 10px 1px rgb(81, 15, 119),
+				1px 18px 6px rgba(16,16,16,0.4),
+				1px 22px 10px rgba(16,16,16,0.2),
+				1px 25px 35px rgba(16,16,16,0.2),
+				1px 30px 60px rgba(16,16,16,0.4);
+}
+.button{
+	box-sizing: border-box;
+	margin: 1px;
+	min-height: 5vh;
+	min-width: 3.5vw;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	font-size: 1.5vw;
+	box-shadow: 1px 1px 1px black,
+				1px 2px 1px black,
+				1px 3px 1px black,
+				1px 4px 1px black;
+}
+.Equals{
+	background-color: blueviolet; 
+}
+button:hover{
+	background-color: royalblue;
+	color: white;
+	transition: 0.5s ease-out ;
+	cursor: pointer;
+}
+
+.Zero{
+	width: 7.1vw;
+}
+
+#Screen{
+	box-sizing: border-box;
+	background-color: rgb(98, 135, 165);
+	min-width: 14vw;
+	min-height: 5vw;
+	border-style:outset;
+	border-width: 2px;
+	border-color: rgb(0, 0, 0);
+	color: black;
+	text-align: end;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2vw;
+	word-wrap:break-word;
+	border-radius: 10px;
+	margin: 3.5%;
+}
+
+.buttons{
+    margin-bottom: 2%;
+	box-sizing: border-box;
+	flex-wrap: wrap;
+	display: flex;
+	align-items:center;
+	text-align: center;
+	justify-content: space-between;
+	justify-content: center;
+	background-color:rgb(81, 15, 119);
+}
+
+@media only screen and (max-width:900px) {
+	.Full{
+		margin: 0.1%;
+		box-sizing: border-box;
+		position: fixed; 
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		height: 100%;
+	}
+	#TempIly{
+		font-size: large;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		color: rgb(189, 0, 196);
+		text-shadow:
+		0 0 7px #fff,
+		0 0 10px #fff,
+		0 0 21px #fff,
+		0 0 42px rgb(119, 0, 255),
+		0 0 82px rgb(119, 0, 255),
+		0 0 92px rgb(119, 0, 255),
+		0 0 102px rgb(119, 0, 255),
+		0 0 151px rgb(119, 0, 255)
+	}
+	.Calculator{
+        margin: 1vh;
+		flex-wrap: wrap;
+		background-color: rgb(81, 15, 119);
+		color: black;
+		display: flex;
+		min-width: 90vw;
+		min-height: 98vh;
+		border-style:groove;
+		border-width: 5px;
+		border-radius: 10px;
+		border-color: rgb(81, 15, 119);
+		box-shadow: none;
+	}	
+
+	.button{
+		box-sizing: border-box;
+		margin: 1px;
+		min-height: 10vh;
+		min-width: 20vw;
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 10px;
+		font-size: 5vw;
+		box-shadow: 1px 1px 1px black,
+					1px 2px 1px black,
+					1px 3px 1px black,
+					1px 4px 1px black;
+	}
+	.Equals{
+		background-color: blueviolet; 
+	}
+	button:hover{
+		background-color: royalblue;
+		color: white;
+		transition: 0.5s ease-out ;
+		cursor: pointer;
+	}
+	
+	.Zero{
+		min-width: 40vw;
+	}
+	
+	#Screen{
+		box-sizing: border-box;
+		background-color: rgb(98, 135, 165);
+		min-width: 80vw;
+		min-height: 20vw;
+		border-style:outset;
+		border-width: 2px;
+		border-color: rgb(100, 100, 128);
+		color: black;
+		text-align: end;
+		font-family: 'digital-7',Arial, Helvetica, sans-serif; /*take out digital*/
+		font-size: 9vh; /*put to 7vh*/
+		word-wrap: break-word;
+		border-radius: 10px;
+		margin: 6%;
+	}
+	
+	.buttons{
+		box-sizing: border-box;
+		flex-wrap: wrap;
+		display: flex;
+		align-items:center;
+		text-align: center;
+		justify-content: space-between;
+		justify-content: center;
+		background-color:rgb(81, 15, 119);
+	}
+}
