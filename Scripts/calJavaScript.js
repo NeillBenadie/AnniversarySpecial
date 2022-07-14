@@ -4,7 +4,7 @@ const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-clear]')
 const screenValueText = document.querySelector('[data-screen]')
-const ourLogo = document.getElementById('#OurLogo');
+// const ourLogo = document.getElementById('#OurLogo');
 const buttons = Array.from(document.getElementsByClassName('button'))
 
 const ilyTotal = document.getElementById("alert");
@@ -152,10 +152,6 @@ class Calculator {
 		console.log(`Total equation: ${wholeEquation}`);
 		if (wholeEquation == "1999*2+7/8"){
 			this.screenValue = "Downloaded..."
-			OurLogo.style.animation = 'spin 2s'
-		}else{
-			OurLogo.style.animation = 'none';
-		}
 	}
 
 	clearAll() {
