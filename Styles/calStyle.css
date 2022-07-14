@@ -4,9 +4,39 @@
     font-weight: normal;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+#OurLogo{
+	margin: 1%;
+	border-radius: 20px;
+	border-color: purple;
+	border-style:inset;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+#alert{
+	margin: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #f4433600;
+	color: rgba(255, 255, 255, 0);
+}
+
 .Full{
 	box-sizing: border-box;
 	display: flex;
+	flex-direction: column;
 	align-items:center;
 	text-align: center;
 	justify-content: space-between;
@@ -17,6 +47,7 @@
 
 #TempIly{
 	font-size: large;
+	pointer-events: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	color: rgb(36, 0, 241);
@@ -31,7 +62,9 @@
 	0 0 151px #0fa
 }
 .Calculator{
-	margin-top: 15%;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10%;
 	flex-wrap: wrap;
 	background-color:rgb(81, 15, 119) ;
 	color: black;
@@ -75,7 +108,7 @@
 	background-color: blueviolet; 
 }
 button:hover{
-	background-color: royalblue;
+	background-color: rgb(41, 37, 37);
 	color: white;
 	transition: 0.5s ease-out ;
 	cursor: pointer;
@@ -86,6 +119,7 @@ button:hover{
 }
 
 #Screen{
+	pointer-events:none;
 	box-sizing: border-box;
 	background-color: rgb(98, 135, 165);
 	min-width: 14vw;
@@ -125,6 +159,16 @@ button:hover{
 		position: absolute;
 		height: 100%;
 	}
+	#OurLogo{
+		visibility: collapse;
+		margin: 1%;
+		border-radius: 20px;
+		border-color: purple;
+		border-style:inset;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+	}
 	#TempIly{
 		font-size: large;
 		font-family: Arial, Helvetica, sans-serif;
@@ -147,7 +191,7 @@ button:hover{
 		color: black;
 		display: flex;
 		min-width: 90vw;
-		min-height: 90vh;
+		min-height: 85%;
 		border-style:groove;
 		border-width: 5px;
 		border-radius: 10px;
@@ -163,7 +207,7 @@ button:hover{
 		border-style: solid;
 		border-width: 1px;
 		border-radius: 10px;
-		font-size: 5vw;
+		font-size: 5vh;
 		box-shadow: 1px 1px 1px black,
 					1px 2px 1px black,
 					1px 3px 1px black,
@@ -173,7 +217,7 @@ button:hover{
 		background-color: blueviolet; 
 	}
 	button:hover{
-		background-color: royalblue;
+		background-color: rgb(41, 37, 37);
 		color: white;
 		transition: 0.5s ease-out ;
 		cursor: pointer;
@@ -187,7 +231,7 @@ button:hover{
 		box-sizing: border-box;
 		background-color: rgb(98, 135, 165);
 		min-width: 80vw;
-		min-height: 20vw;
+		min-height: 25%;
 		border-style:outset;
 		border-width: 2px;
 		border-color: rgb(100, 100, 128);
@@ -198,6 +242,7 @@ button:hover{
 		word-wrap: break-word;
 		border-radius: 10px;
 		margin: 6%;
+		pointer-events: none;
 	}
 	
 	.buttons{
