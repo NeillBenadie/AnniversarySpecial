@@ -4,8 +4,17 @@ const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-clear]')
 const screenValueText = document.querySelector('[data-screen]')
+const ourLogo = document.getElementById('#OurLogo');
+const buttons = Array.from(document.getElementsByClassName('button'))
+
+const ilyTotal = document.getElementById("alert");
+ilyTotal.style.visibility = "hidden";
+ilyTotal.style.color = "black";
+ilyTotal.style.backgroundColor = "rgb(199, 36, 231)";
+
 let savedValueText;
 let AmountSaidIly = 0;
+let wholeEquation = '';
 
 numberButtons.forEach(button => {
 	button.addEventListener('click', () => {
@@ -33,6 +42,24 @@ deleteButton.addEventListener('click', button => {
 	calculator.removeOne();
 	calculator.updateScreen();
 })
+buttons.map( button => { 
+    button.addEventListener('click', (e) => {//Saving the entire equation in to a var
+        switch(e.target.innerText){
+            case 'AC':
+				wholeEquation = ''
+            case '=' :
+                break;
+            case '←':
+				if (wholeEquation){
+					wholeEquation = wholeEquation.slice(0, -1);
+				}
+                break;
+            default:
+                wholeEquation += e.target.innerText;
+        }
+    });
+});
+
 
 class Calculator {
 	constructor(savedValueText, screenValueText) {
@@ -47,12 +74,13 @@ class Calculator {
         console.log("");			//and this
         this.AmountSaidIly = this.AmountSaidIly + 1;
 
-        let fullWidth = window.innerWidth;
-        let fullHeight = window.innerHeight;
+        let fullWidth = window.innerWidth - 100;
+        let fullHeight = window.innerHeight - 100;
 
 		let items = ['I LOVE YOU', 'I love You, babe!', 'I love you my darling', 'ey! I love YOU!',
 		'Ek is lief vir jou!', 'I love YOU SO MUCH!!', 'Love you, my Angel', 'I love you, Michaela',
-		'HEY!! I Love you long time!', 'I love you, Always!', 'For Always my love', 'Hi my Love, I love you!'];
+		'HEY!! I Love you long time!', 'I love you, Always!', 'For Always my love', 'Hi my Love, I love you!', 
+		`I LOVE YOU, Lilian Michaela D'Alton`];
 		let item = items[Math.floor(Math.random()*items.length)];
 
 		let elem = document.createElement("div");
@@ -70,7 +98,66 @@ class Calculator {
 		}
 		deleteIly();
 	}
-    
+	ShowTotalIlyFunction(){
+		let ilyMoreThanTwo = [`I just told you ${this.AmountSaidIly} times that I love you, and you didn't say it back o.O`, `${this.AmountSaidIly} times, I told you I love you -.-`, `I told you ${this.AmountSaidIly} times that I love you hey...`, `oi! I told you ${this.AmountSaidIly} times that I love you!`, `Oh! look at that: ${this.AmountSaidIly} times I told you I love you.`];
+		let ilyMoreThanOne = [`Babe I just told you twice, that I love you`, `That's Two times I told you I love you`, `Twice I got left Hanging...`, `My Steri Stumpi... I told you twice I love you`, `Babe, I love you twice neh...`, `HEY!!! I told you, that I love you twice now...`];
+		let ilyJustOnce = [`hmmmm... I just told you that I love you, and you didn't say it back `, `BABE! I TOLD YOU I LOVE YOU -.-`, `I LOVE YOU MUCH MUCH`, `OI!! I said I love you`, `REEE I told you, I love you and nothing?`,`Did you not see I told you that I love you?`, `HEEYY!! I told you I love you...`,`Why ignore me after I declared my love for you`];
+
+		if(this.AmountSaidIly > 2){
+			let ilySentence = ilyMoreThanTwo[Math.floor(Math.random()*ilyMoreThanTwo.length)];
+			ilyTotal.style.visibility = "visible";
+			let paragraph = ilyTotal;
+			paragraph.textContent = ilySentence;
+
+			let sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+			let deleteIlyText = async () => {
+			await sleep(3000)
+			document.getElementById("alert").style.visibility = "hidden"
+			}
+			deleteIlyText();
+
+			console.log(`I just told you ${this.AmountSaidIly} times that I love you, and you didn't say it back o.O`);//delete this
+		}else if(this.AmountSaidIly == 2){
+			let ilySentence = ilyMoreThanOne[Math.floor(Math.random()*ilyMoreThanOne.length)];
+			ilyTotal.style.visibility = "visible";
+			let paragraph = ilyTotal;
+			paragraph.textContent = ilySentence;
+
+			let sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+			let deleteIlyText = async () => {
+			await sleep(3000)
+			document.getElementById("alert").style.visibility = "hidden"
+			}
+			deleteIlyText();
+
+			console.log(`Thats twice I told you I love you hey...`);	//Delete this	
+		}else{
+			let ilySentence = ilyJustOnce[Math.floor(Math.random()*ilyJustOnce.length)];
+			ilyTotal.style.visibility = "visible";
+			let paragraph = ilyTotal;
+			paragraph.textContent = ilySentence;
+
+			let sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+			let deleteIlyText = async () => {
+			await sleep(3000)
+			document.getElementById("alert").style.visibility = "hidden"
+			}
+			deleteIlyText();
+
+			console.log(`I just told you that "I love you", and you didn't say it back :( `);	//Delete this	
+		}	
+	}
+
+	wholeEquationFun(){
+		console.log(`Total equation: ${wholeEquation}`);
+		if (wholeEquation == "1999*2+7/8"){
+			this.screenValue = "Downloaded..."
+			OurLogo.style.animation = 'spin 2s'
+		}else{
+			OurLogo.style.animation = 'none';
+		}
+	}
+
 	clearAll() {
 		this.screenValue = '';
 		this.savedValue = '';
@@ -84,7 +171,7 @@ class Calculator {
 		if (number === '0' && this.screenValue.toString() ==='0') return; //stops the function if the user wants to spam '0' from the start
 		if (number === '.' && this.screenValue.includes('.')) return; //stops the function if there is already '.' in
 		if (Object.keys(this.screenValue).length > 23) return; //stops the user from typing a number that goes past screen borders
-		this.screenValue = this.screenValue.toString() + number.toString();	
+		this.screenValue = this.screenValue.toString() + number.toString();
 	}
 	chosenOperation(operation) {
 		if (operation === '+' || '-' || '*' || '%' || '-' || '/'){ //Changes the operation if a different operation is clicked.
@@ -109,7 +196,7 @@ class Calculator {
 		return previous - current;
 	}
 	multiply(previous,current){
-		return previous * current;
+		return  previous * current;
 	}
 	remainder(previous,current){
 		return previous % current;
@@ -124,8 +211,12 @@ class Calculator {
 
 	updateScreen() {
 		this.screenValueText.innerText = this.screenValue;
+		if(this.screenValue == "Downloaded..." || this.screenValue == "Lol, no"){
+			this.screenValue = '';
+			wholeEquation = '';
+		} 
 	}
-	
+
 	operate() {
 		let equation;
 		const previous = parseFloat(this.savedValue);
@@ -159,14 +250,11 @@ class Calculator {
 		}else{
 			this.screenValue = equation;
 		}
+
 		this.operation = undefined;
 		this.savedValue = '';
-
-		if(this.AmountSaidIly > 1){
-			console.log(`I just told you ${this.AmountSaidIly} times that I love you, and you didn't say it back o.O`);
-		}else{
-			console.log(`I just told you that I love you, and you didn't say it back :( `);		
-		}  
-	}
+		this.ShowTotalIlyFunction();
+		this.wholeEquationFun();
+	}	
 }  
 const calculator = new Calculator(savedValueText,screenValueText);
