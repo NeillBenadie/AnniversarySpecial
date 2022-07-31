@@ -4,8 +4,8 @@ const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-clear]')
 const screenValueText = document.querySelector('[data-screen]')
-// const ourLogo = document.getElementById('#OurLogo');
 const buttons = Array.from(document.getElementsByClassName('button'))
+const linkDownload = document.getElementById('Anniversary')
 
 const ilyTotal = document.getElementById("alert");
 ilyTotal.style.visibility = "hidden";
@@ -15,6 +15,8 @@ ilyTotal.style.backgroundColor = "rgb(199, 36, 231)";
 let savedValueText;
 let AmountSaidIly = 0;
 let wholeEquation = '';
+
+
 
 numberButtons.forEach(button => {
 	button.addEventListener('click', () => {
@@ -70,8 +72,6 @@ class Calculator {
 	}
 
     iLoveYou() {
-        console.log("I LOVE YOU"); //remember to remove this at the end
-        console.log("");			//and this
         this.AmountSaidIly = this.AmountSaidIly + 1;
 
         let fullWidth = window.innerWidth - 100;
@@ -115,8 +115,6 @@ class Calculator {
 			document.getElementById("alert").style.visibility = "hidden"
 			}
 			deleteIlyText();
-
-			console.log(`I just told you ${this.AmountSaidIly} times that I love you, and you didn't say it back o.O`);//delete this
 		}else if(this.AmountSaidIly == 2){
 			let ilySentence = ilyMoreThanOne[Math.floor(Math.random()*ilyMoreThanOne.length)];
 			ilyTotal.style.visibility = "visible";
@@ -129,8 +127,6 @@ class Calculator {
 			document.getElementById("alert").style.visibility = "hidden"
 			}
 			deleteIlyText();
-
-			console.log(`Thats twice I told you I love you hey...`);	//Delete this	
 		}else{
 			let ilySentence = ilyJustOnce[Math.floor(Math.random()*ilyJustOnce.length)];
 			ilyTotal.style.visibility = "visible";
@@ -143,15 +139,14 @@ class Calculator {
 			document.getElementById("alert").style.visibility = "hidden"
 			}
 			deleteIlyText();
-
-			console.log(`I just told you that "I love you", and you didn't say it back :( `);	//Delete this	
 		}	
 	}
 
 	wholeEquationFun(){
 		console.log(`Total equation: ${wholeEquation}`);
-		if (wholeEquation == "1999*2+7/8"){
-			this.screenValue = "Downloaded..."
+		if (wholeEquation !== "1999*2+7/8") return
+		linkDownload.style.visibility = "visible";
+		this.screenValue = '';
 	}
 
 	clearAll() {
@@ -205,9 +200,9 @@ class Calculator {
 		}
 	}
 
-	updateScreen() {
+	updateScreen() {	
 		this.screenValueText.innerText = this.screenValue;
-		if(this.screenValue == "Downloaded..." || this.screenValue == "Lol, no"){
+		if(this.screenValue == "Lol, no"){
 			this.screenValue = '';
 			wholeEquation = '';
 		} 
